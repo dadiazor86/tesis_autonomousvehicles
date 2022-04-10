@@ -124,12 +124,12 @@ def pspnet_101(n_classes,  input_height=473, input_width=473, channels=3):
     return model
 
 
-# def mobilenet_pspnet( n_classes ,  input_height=224, input_width=224 ):
+def mobilenet_pspnet( n_classes ,  input_height=224, input_width=224 ):
 
-# 	model =  _pspnet(n_classes, get_mobilenet_encoder,
-#                    input_height=input_height, input_width=input_width)
-# 	model.model_name = "mobilenet_pspnet"
-# 	return model
+ 	model =  _pspnet(n_classes, get_mobilenet_encoder,
+                    input_height=input_height, input_width=input_width)
+ 	model.model_name = "mobilenet_pspnet"
+ 	return model
 
 
 if __name__ == '__main__':
