@@ -38,7 +38,7 @@ def pool_block(feats, pool_factor):
     x = BatchNormalization()(x)
     x = Activation('relu')(x)
 
-    x = resize_image(x, strides, data_format=IMAGE_ORDERING)
+    x = K.resize_images(x, strides[0], strides[1], data_format=IMAGE_ORDERING, interpolation = 'bilinear')
 
     return x
 
@@ -69,7 +69,7 @@ def _pspnet(n_classes, encoder,  input_height=384, input_width=576, channels=3):
 
     o = Conv2D(n_classes, (3, 3), data_format=IMAGE_ORDERING,
                padding='same')(o)
-    o = resize_image(o, (8, 8), data_format=IMAGE_ORDERING)
+    o = K.resize_images(o, 8, 8, data_format=IMAGE_ORDERING)
 
     model = get_segmentation_model(img_input, o)
     return model
